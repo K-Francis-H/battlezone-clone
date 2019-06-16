@@ -26,6 +26,9 @@ int main(){
 	//TODO load tank model
 	Model wireframeTank = LoadModel("res/model/tank_textured.obj");
 
+	//TODO make the camera faster, with no sine step or whatever
+	//also remove camera turning
+
 	while(!WindowShouldClose()){
 
 		UpdateCamera(&cam);
@@ -37,6 +40,9 @@ int main(){
 			ClearBackground(BLACK);
 
 			BeginMode3D(cam);
+
+				//background horizon
+				DrawCircle3D(cam.position/*(Vector3){0.0f, 0.0f, 0.0f}*/, 100.0f, (Vector3){1.0f, 0.0f, 0.0f}, 90.0f, GREEN);
 
 				//TODO draw 3d stuff
 				DrawModelWires(wireframeTank, (Vector3){0.0f, 0.0f, 0.0f}, 10.0f, GREEN);
