@@ -45,7 +45,7 @@ int main(){
 
 			EndMode3D();
 
-			drawReticle(false);
+			drawReticle(true);
 
 			#ifdef DEBUG
 				DrawFPS(10,10);
@@ -72,7 +72,15 @@ void drawReticle(bool isLocked){
 	DrawLine(SWIDTH/2-50, SHEIGHT/2+50, SWIDTH/2+50, SHEIGHT/2+50, GREEN);
 
 	if(isLocked){
-		//TODO
+		//left top
+		DrawLine(SWIDTH/2-50, SHEIGHT/2-50, SWIDTH/2-25, SHEIGHT/2-25, GREEN);
+		//right top
+		DrawLine(SWIDTH/2+50, SHEIGHT/2-50, SWIDTH/2+25, SHEIGHT/2-25, GREEN);
+
+		//left bottom
+		DrawLine(SWIDTH/2-50, SHEIGHT/2+50, SWIDTH/2-25, SHEIGHT/2+25, GREEN);
+		//right bottom
+		DrawLine(SWIDTH/2+50, SHEIGHT/2+50, SWIDTH/2+25, SHEIGHT/2+25, GREEN);
 	}else{
 		//left top
 		DrawLine(SWIDTH/2-50, SHEIGHT/2-50, SWIDTH/2-50, SHEIGHT/2-25, GREEN);
