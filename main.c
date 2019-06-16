@@ -13,6 +13,8 @@
 
 Camera3D setupCamera();
 
+void drawReticle(bool isLocked);
+
 int main(){
 	
 	InitWindow(SWIDTH, SHEIGHT, "BattleZone");
@@ -43,6 +45,8 @@ int main(){
 
 			EndMode3D();
 
+			drawReticle(false);
+
 			#ifdef DEBUG
 				DrawFPS(10,10);
 			#endif
@@ -50,6 +54,36 @@ int main(){
 		EndDrawing();
 	}
 
+}
+
+void drawReticle(bool isLocked){
+	//draw common parts
+
+	//upper T
+	//vertical
+	DrawLine(SWIDTH/2, SHEIGHT/4, SWIDTH/2, SHEIGHT/2-50, GREEN);
+	//horizontal
+	DrawLine(SWIDTH/2-50, SHEIGHT/2-50, SWIDTH/2+50, SHEIGHT/2-50, GREEN);
+
+	//lower T
+	//vertical
+	DrawLine(SWIDTH/2, SHEIGHT/4*3, SWIDTH/2, SHEIGHT/2+50, GREEN);
+	//horizontal
+	DrawLine(SWIDTH/2-50, SHEIGHT/2+50, SWIDTH/2+50, SHEIGHT/2+50, GREEN);
+
+	if(isLocked){
+		//TODO
+	}else{
+		//left top
+		DrawLine(SWIDTH/2-50, SHEIGHT/2-50, SWIDTH/2-50, SHEIGHT/2-25, GREEN);
+		//right top
+		DrawLine(SWIDTH/2+50, SHEIGHT/2-50, SWIDTH/2+50, SHEIGHT/2-25, GREEN);
+
+		//left bottom
+		DrawLine(SWIDTH/2-50, SHEIGHT/2+50, SWIDTH/2-50, SHEIGHT/2+25, GREEN);
+		//right bottom
+		DrawLine(SWIDTH/2+50, SHEIGHT/2+50, SWIDTH/2+50, SHEIGHT/2+25, GREEN);
+	}
 }
 
 Camera3D setupCamera(){
